@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mateusz Starosta</title>
+    <style>
+    header {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    flex-direction: space-between;
+    text-align: center;
+    }
+    header span {
+    padding: 0;
+    margin: 0;
+    width: 20%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    }
+    header span img {
+    width: 200px;
+    height: 60px;
+    }
+    header span a{
+    text-decoration: none;
+    font-size: 26px;
+    }
+    header span a span{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    color: black;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    }
+    header span a span img{
+    width: 32px;
+    height: 32px;
+    margin: 0 6px 0 6px;
+    }
+    header span a span:hover {
+    color: #1981a3;
+    }
+</style>
+
+</head>
+<body>
+<header>
+    <span><img src="/img/lg.jpg"></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span><a href="/"><span>
+            <img src="/img/home.png">Strona główna
+        </span></a></span>
+</header>
+<div align="center">
+    <table>
+        <tr>
+            <form th:action="@{/znajdzNazw/{nazw}}" th:object="${juzer}" method="post">
+
+                <td>Podaj nazwisko:</td>
+                <td><input type="text" name="nazw" th:field="*{nazw}"></td>
+                <td><input type="submit" value="Znajdź po nazwisku"></td>
+            </form>
+        </tr>
+        <tr>
+            <form th:action="@{/znajdzID/{id}}" th:object="${juzer}" method="post">
+                <td>Podaj ID:</td>
+                <td><input type="number" name="id" th:field="*{id}"></td>
+                <td><input type="submit" value="Znajdź po numerze ID"></td>
+            </form>
+        </tr>
+        <tr>
+            <form th:action="@{/znajdzDZ/{DoZaplaty}}" th:object="${juzer}" method="post">
+                <td>Podaj ile klient musi zaplacić:</td>
+                <td><input type="number" name="DoZaplaty" th:field="*{DoZaplaty}"></td>
+                <td><input type="submit" value="Znajdź po cenie"></td>
+            </form>
+        </tr>
+
+    </table>
+</div>
+</body>
+</html>
